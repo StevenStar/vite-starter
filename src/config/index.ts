@@ -1,7 +1,3 @@
-const config: object = {
-    WEB_VERSION: '1.0.0',
-
-    API_SERVER: '',
-}
-
-export default config
+export const WEB_VERSION = '1.0.0'
+export const API_SERVER = ''
+export const WEB_TOKEN_KEY = 'X-SITE-TOKEN'

@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia'
-import config from '@/config'
-const { WEB_VERSION } = config
+import { store } from '@/store'
+import { WEB_VERSION } from '@/config'
 
-export interface AppState {
+interface AppState {
     version: string;
     theme: string;
 }
@@ -19,3 +19,8 @@ export const useAppStore = defineStore('app', {
         }
     }
 })
+
+// 在组件setup函数外使用
+export function useAppStoreWithOut() {
+    return useAppStore(store)
+}

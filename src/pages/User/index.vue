@@ -1,6 +1,6 @@
 <template>
     <div>
-        Page Not Found
+        User Center
     </div>
 </template>
 <script setup lang="ts">

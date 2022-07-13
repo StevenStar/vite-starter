@@ -1,11 +1,12 @@
 import { defineStore } from 'pinia'
+import { store } from '@/store'
 
-export interface AuthState {
+interface AuthState {
     token: string
     userInfo: UserInfo
 }
 
-export interface UserInfo {
+interface UserInfo {
     id: number|string
     name?: string
     avatar?: string
@@ -34,3 +35,8 @@ export const useAuthStore = defineStore({
         }
     }
 })
+
+// 在组件setup函数外使用
+export function useAuthStoreWithOut() {
+    return useAuthStore(store)
+}

@@ -1,11 +1,24 @@
 import { createApp } from 'vue'
 import App from '@/App.vue'
-import router from '@/router'
-import store from '@/store'
+import { setupRouter } from '@/router'
+import { setupStore } from '@/store'
+import { setupAntd } from '@/plugins'
 
 import '@/assets/css/main.scss'
 
 const app = createApp(App)
-app.use(router)
-app.use(store)
-app.mount('#app')
+
+function setupPlugins() {
+    // setupAntd(app)
+}
+
+async function setupApp() {
+    setupStore(app)
+    await setupRouter(app)
+    
+    app.mount('#app')
+}
+
+setupPlugins()
+
+setupApp()

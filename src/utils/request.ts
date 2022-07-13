@@ -1,7 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
 import store from '@/store'
-import config from '@/config'
-const API_SERVER = config.API_SERVER
+import { API_SERVER } from '@/config'
 
 const service: AxiosInstance = axios.create({
     baseURL: API_SERVER,
