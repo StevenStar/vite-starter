@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from '@/App.vue'
 import { setupRouter } from '@/router'
 import { setupStore } from '@/store'
-import { setupAntd } from '@/plugins'
+import { setupAntd, setupVueQrcode } from '@/plugins'
 
 import '@/assets/css/main.scss'
 
@@ -15,6 +15,7 @@ function setupPlugins() {
 async function setupApp() {
     setupStore(app)
     await setupRouter(app)
+    await setupVueQrcode(app)
     
     app.mount('#app')
 }

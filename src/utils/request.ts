@@ -1,15 +1,20 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
-import store from '@/store'
+import { useAuthStore } from '@/store/modules/auth'
+import { message } from 'ant-design-vue'
+import { getToken } from '@/utils/auth'
 import { API_SERVER } from '@/config'
+
+const authStore: any = useAuthStore()
 
 const service: AxiosInstance = axios.create({
     baseURL: API_SERVER,
-    timeout: 5000
+    timeout: 10000
 })
 
 service.interceptors.request.use((config: AxiosRequestConfig) => {
-    if (store.getters['/auth/token']) {
-        config.headers['token'] = store.state.auth.token
+    const token: any = getToken()
+    if (token) {
+        config.headers['token'] = token
     }
     
     return config
@@ -36,13 +41,9 @@ service.interceptors.response.use((response: AxiosResponse) => {
 
 function showError(error: any) {
     if (error.code === 403) {
-        store.dispatch('auth/signOut')
+        authStore.signOut()
     } else {
-        // totast({
-        //     message: error.msg || error.message || '服务异常，请稍后再试！',
-        //     type: 'error',
-        //     duration: 3 * 1000
-        // })
+        message.error(error.msg || error.message || '服务异常，请稍后再试！')
     }
 }
 

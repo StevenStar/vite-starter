@@ -2,6 +2,14 @@
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
+    font-family: 'PingFangSC-Regular','Source Han Sans CN','Microsoft YaHei', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.56;
+    color: #F9FAFA;
+}
+
+.app-container {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1200px;
 }

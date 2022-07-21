@@ -5,6 +5,7 @@ import {
     Button,
     Card,
     Col,
+    Carousel,
     DatePicker,
     Divider,
     Dropdown,
@@ -28,6 +29,7 @@ export function setupAntd(app: App<Element>) {
         .use(Button)
         .use(Card)
         .use(Col)
+        .use(Carousel)
         .use(DatePicker)
         .use(Divider)
         .use(Dropdown)

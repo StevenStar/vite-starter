@@ -5,8 +5,8 @@ import piniaPluginPersist from 'pinia-plugin-persist'
 const store = createPinia()
 store.use(piniaPluginPersist)
 
-export function setupStore(app: APP<Element>) {
+export function setupStore(app: App<Element>) {
     app.use(store)
 }
 
-export default { store }
+export { store }

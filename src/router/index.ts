@@ -1,11 +1,11 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import { BlankLayout, DefaultLayout } from '@/layouts'
 import { createRouterGuards } from '@/router/router-guards'
 import { WHITE_NAME_LIST } from '@/config/constant'
 
 import type { App } from 'vue'
 
-const routes = [{
+const routes: Array<RouteRecordRaw> = [{
     path: '/',
     name: 'root',
     redirect: '/',

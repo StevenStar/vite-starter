@@ -5,7 +5,7 @@ export function getToken() {
     return cookies.get(WEB_TOKEN_KEY)
 }
 
-export function setToken(token) {
+export function setToken(token: any) {
     return cookies.set(WEB_TOKEN_KEY, token)
 }
 

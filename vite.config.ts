@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import legacy from '@vitejs/plugin-legacy'
+import { viteMockServe } from 'vite-plugin-mock'
 import svgLoader from 'vite-svg-loader';
 import { resolve } from 'path'
 import Components from 'unplugin-vue-components/vite'
@@ -12,6 +13,10 @@ export default defineConfig({
         vue(),
         legacy({
             targets: ['defaults', 'not IE 11']
+        }),
+        viteMockServe({
+            mockPath: 'mock',
+            logger: true
         }),
         svgLoader(),
         Components({
