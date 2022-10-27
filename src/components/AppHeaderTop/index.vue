@@ -43,12 +43,12 @@ import {
         justify-content: space-between;
         align-items: center;
 
-        .top-nav {
-            line-height: 26px;
-            border: 0;
-            background-color: transparent;
+        :deep(.ant-menu) {
+            &.top-nav {
+                line-height: 26px;
+                border: 0;
+                background-color: transparent;
 
-            &.ant-menu:deep {
                 .ant-menu-item {
                     padding: 0 10px;
                     

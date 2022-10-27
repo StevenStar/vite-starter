@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="home-side">
-                <a-affix :offset-top="120">
+                <a-affix :offset-top="100">
                     <div class="side-content">
                         <a-card class="side-user" :bordered="false">
                             <template #cover>
@@ -131,16 +131,12 @@ const onLoadMore = () => {
 }
 
 const listData: ListDataItem[] = [
-    { href: 'https://www.antdv.com/', title: 'ant design vue part 1', avatar: 'https://joeschmoe.io/api/v1/random', description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.', content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.' },
-    { href: 'https://www.antdv.com/', title: 'ant design vue part 2', avatar: 'https://joeschmoe.io/api/v1/random', description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.', content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.' },
-    { href: 'https://www.antdv.com/', title: 'ant design vue part 3', avatar: 'https://joeschmoe.io/api/v1/random', description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.', content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.' },
-    { href: 'https://www.antdv.com/', title: 'ant design vue part 4', avatar: 'https://joeschmoe.io/api/v1/random', description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.', content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.' },
+    { href: 'https://www.antdv.com/', title: 'Vue 3 + TypeScript + Vite + Pinia + Ant Design Vue + SCSS 1', avatar: 'https://joeschmoe.io/api/v1/random', description: '发布于星球', content: '新建项目，并且初始化' },
+    { href: 'https://www.antdv.com/', title: 'Vue 3 + TypeScript + Vite + Pinia + Ant Design Vue + SCSS 2', avatar: 'https://joeschmoe.io/api/v1/random', description: '发布于星球', content: '新建项目，并且初始化' },
+    { href: 'https://www.antdv.com/', title: 'Vue 3 + TypeScript + Vite + Pinia + Ant Design Vue + SCSS 3', avatar: 'https://joeschmoe.io/api/v1/random', description: '发布于星球', content: '新建项目，并且初始化' },
+    { href: 'https://www.antdv.com/', title: 'Vue 3 + TypeScript + Vite + Pinia + Ant Design Vue + SCSS 4', avatar: 'https://joeschmoe.io/api/v1/random', description: '发布于星球', content: '新建项目，并且初始化' },
     { href: 'https://www.antdv.com/', title: '从0搭建Vue3组件库之Icon组件', avatar: 'https://joeschmoe.io/api/v1/random', description: '来自星球', content: 'Icon组件是一个组件库中不可或缺的组件之一，本篇文章将带大家实现一个Icon组件。如果你想了解完整的组件库搭建，你可以先看使用Vite和TypeScript带你从零打造一个属于自己的Vue3组件库。' }
 ]
-
-const pagination = {
-    pageSize: 10
-}
 
 const isLogin: boolean = computed(() => {
     return authSore.$state.userInfo.id != ''
@@ -161,11 +157,11 @@ const isLogin: boolean = computed(() => {
             min-height: calc(100vh - 80px - 380px - 20px);
             background-color: #fff;
 
-            .home-carousel {
+            :deep(.ant-carousel) {
+                &.home-carousel {
                 width: 880px;
                 height: 160px;
 
-                &.ant-carousel:deep {
                     .slick-slide {
                         height: 160px;
                         line-height: 160px;
@@ -189,10 +185,10 @@ const isLogin: boolean = computed(() => {
                 }
             }
 
-            .home-tab {
-                margin-top: 20px;
+            :deep(.ant-tabs) {
+                &.home-tab {
+                    margin-top: 20px;
 
-                &.ant-tabs:deep {
                     .ant-tabs-nav {
                         padding-left: 15px;
                         margin: 0;
@@ -200,10 +196,10 @@ const isLogin: boolean = computed(() => {
                 }
             }
 
-            .home-list {
-                margin-top: 20px;
+            :deep(.ant-list) {
+                &.home-list {
+                    margin-top: 20px;
 
-                &.ant-list:deep {
                     .home-list-loading {
                         margin-top: 20px;
                         text-align: center;
@@ -220,31 +216,33 @@ const isLogin: boolean = computed(() => {
             margin-left: 20px;
             width: 300px;
 
-            .side-user {
-                background-color: #fff;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
-                
-                &.ant-card:deep {
-                    .ant-card-actions {
-                        border-top: 0;
-                        
-                        > li {
-                            border-right: 0;
-                        }
+            &:deep(.ant-card) {
+                .ant-card-actions {
+                    border-top: 0;
+                    
+                    > li {
+                        border-right: 0;
                     }
                 }
-            }
 
-            .side-author {
-                margin-top: 20px;
-                background-color: #fff;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
-            }
 
-            .side-article {
-                margin-top: 20px;
-                background-color: #fff;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+                &.side-user {
+                    background-color: #fff;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+                    
+                }
+
+                &.side-author {
+                    margin-top: 20px;
+                    background-color: #fff;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+                }
+
+                &.side-article {
+                    margin-top: 20px;
+                    background-color: #fff;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+                }
             }
         }
     }

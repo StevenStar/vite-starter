@@ -4,6 +4,7 @@ import legacy from '@vitejs/plugin-legacy'
 import { viteMockServe } from 'vite-plugin-mock'
 import svgLoader from 'vite-svg-loader';
 import { resolve } from 'path'
+import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 
@@ -15,12 +16,17 @@ export default defineConfig({
             targets: ['defaults', 'not IE 11']
         }),
         viteMockServe({
-            mockPath: 'mock',
+            mockPath: './mock',
+            localEnabled: process.env.USE_MOCK || false,
+            prodEnabled: process.env.USE_CHUNK_MOCK || false,
             logger: true
         }),
         svgLoader(),
+        AutoImport({
+            resolvers: [AntDesignVueResolver()]
+        }),
         Components({
-            resolvers: [AntDesignVueResolver()],
+            resolvers: [AntDesignVueResolver()]
         })
     ],
     resolve: {
@@ -29,6 +35,7 @@ export default defineConfig({
         }
     },
     server: {
+        host: '0.0.0.0',
         port: 3000,
         open: false
     }

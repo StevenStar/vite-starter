@@ -131,7 +131,7 @@ const state: State = reactive({
                     .link-body {
                         margin-top: 10px;
 
-                        :deep .link-nav {
+                        :deep(.link-nav) {
                             border-right: 0;
                             
                             .nav-item {
